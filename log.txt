@@ -1,0 +1,4 @@
+material :
+
+https://elthen.itch.io
+https://elthen.itch.io/2d-pixel-art-minotaur-sprites

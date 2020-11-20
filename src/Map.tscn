@@ -1,0 +1,292 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/Map/Simple Tilemap/Tilemaps/Tilemap.png" type="Texture" id=1]
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Sword.gd" type="Script" id=3]
+[ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Enemyhp.gd" type="Script" id=5]
+[ext_resource path="res://src/Playerhp.gd" type="Script" id=6]
+[ext_resource path="res://src/Apple.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Apple.gd" type="Script" id=9]
+[ext_resource path="res://src/goap/goap_action_planner.gd" type="Script" id=10]
+[ext_resource path="res://src/Sword.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/goap/goap_action.gd" type="Script" id=12]
+[ext_resource path="res://src/Map.gd" type="Script" id=13]
+[ext_resource path="res://Ben Mo Legend Chinese Font -Simplified Chinese Fonts.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 3.8147e-06, 0, 48, 0, 48, 48, 3.8147e-06, 48 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 1.52588e-05, 0, 48, 0, 48, 48, 1.52588e-05, 48 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "Tilemap.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 48, 0, 48, 48 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Tilemap.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 144, 0, 48, 48 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.470588 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+font_data = ExtResource( 14 )
+
+[node name="Map" type="TileMap"]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 48, 48 )
+collision_layer = 4
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -655386, 1073741825, 0, 0, 1073741825, 0, 1, 1073741825, 0, 2, 1073741825, 0, 3, 1073741825, 0, 4, 1073741825, 0, 5, 1073741825, 0, 6, 1073741825, 0, 7, 1073741825, 0, 8, 1073741825, 0, 9, 1073741825, 0, 10, 1073741825, 0, 11, 1073741825, 0, 12, 1073741825, 0, 13, 1073741825, 0, 14, 1073741825, 0, 15, 1073741825, 0, 16, 1073741825, 0, 17, 1073741825, 0, 18, 1073741825, 0, 19, 1073741825, 0, 20, 1073741825, 0, 21, 1073741825, 0, 22, 1, 0, 23, 1, 0, 24, 1, 0, 25, 1, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 65536, 1073741825, 0, 65564, 1, 0, 131072, 1073741825, 0, 131100, 1, 0, 196608, 1073741825, 0, 196636, 1, 0, 262144, 1073741825, 0, 262172, 1, 0, 327680, 1073741825, 0, 327708, 1, 0, 393216, 1073741825, 0, 393244, 1, 0, 458752, 1073741825, 0, 458780, 1, 0, 524288, 1073741825, 0, 524289, 1073741825, 0, 524316, 1, 0, 589824, 1073741825, 0, 589826, 1073741825, 0, 589827, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 655360, 1073741825, 0, 655388, 1, 0, 720896, 1073741825, 0, 720907, 0, 0, 720916, 0, 0, 720924, 1, 0, 786432, 1073741825, 0, 786433, 1073741825, 0, 786434, 1073741825, 0, 786435, 1073741825, 0, 786436, 1073741825, 0, 786437, 1073741825, 0, 786438, 1073741825, 0, 786439, 1073741825, 0, 786440, 1073741825, 0, 786441, 1073741825, 0, 786442, 1073741825, 0, 786443, 1073741825, 0, 786444, 1073741825, 0, 786445, 1073741825, 0, 786446, 1073741825, 0, 786447, 1073741825, 0, 786448, 1073741825, 0, 786449, 1073741825, 0, 786450, 1073741825, 0, 786451, 1073741825, 0, 786452, 1073741825, 0, 786453, 1073741825, 0, 786454, 1, 0, 786455, 1, 0, 786456, 1, 0, 786457, 1, 0, 786458, 1, 0, 786459, 1, 0, 786460, 1, 0 )
+script = ExtResource( 13 )
+
+[node name="Playerhp" type="RichTextLabel" parent="."]
+margin_left = 51.6883
+margin_top = 52.2523
+margin_right = 171.688
+margin_bottom = 92.2523
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemyhp" type="RichTextLabel" parent="."]
+margin_left = 1219.56
+margin_top = 48.116
+margin_right = 1339.55
+margin_bottom = 88.116
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 695.887, 534.498 )
+scale = Vector2( 2, 2 )
+
+[node name="GOAPActionPlanner" type="Node" parent="Enemy"]
+script = ExtResource( 10 )
+
+[node name="ai_attack" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "ai_attack"
+preconditions = "near_player has_sword"
+effect = "player_injured"
+
+[node name="ai_attack2" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "ai_attack2"
+preconditions = "near_player has_sword player_injured"
+effect = "player_die"
+
+[node name="eat" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "eat"
+preconditions = "near_apple injured"
+effect = "!injured"
+
+[node name="open_door" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "open_door"
+preconditions = "door_block near_door"
+effect = "!door_block"
+
+[node name="close_door" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "close_door"
+preconditions = "!door_block near_door"
+effect = "door_block"
+
+[node name="ai_jump" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "ai_jump"
+preconditions = "road_block"
+effect = "!road_block"
+
+[node name="idle" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "idle"
+cost = 10.0
+
+[node name="take_sword" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "take_sword"
+preconditions = "!has_sword near_sword"
+effect = "has_sword"
+
+[node name="run_to_player" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "run_to_player"
+preconditions = "!door_block !road_block !near_player"
+effect = "near_player !near_sword !near_apple !near_door"
+
+[node name="run_to_sword" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "run_to_sword"
+preconditions = "!near_sword !road_block"
+effect = "near_sword !near_apple !near_player !near_door"
+
+[node name="run_to_apple" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "run_to_apple"
+preconditions = "!near_apple !road_block"
+effect = "near_apple !near_sword !near_player !near_door"
+
+[node name="run_to_door" type="Node" parent="Enemy/GOAPActionPlanner"]
+script = ExtResource( 12 )
+action = "run_to_door"
+preconditions = "!near_door !road_block"
+effect = "near_door !near_sword !near_player !near_apple"
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 377.856, 545.038 )
+scale = Vector2( 2, 2 )
+
+[node name="Apple" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1277.01, 568.541 )
+scale = Vector2( 2, 2 )
+collision_mask = 5
+script = ExtResource( 9 )
+
+[node name="Sword" parent="." instance=ExtResource( 11 )]
+position = Vector2( 862.247, 568.158 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 3 )
+
+[node name="Door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 189.891, 573.542 )
+scale = Vector2( 1, 1.337 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ActionQueue" type="Label" parent="CanvasLayer"]
+margin_left = 155.842
+margin_top = 214.772
+margin_right = 1211.84
+margin_bottom = 258.772
+custom_styles/normal = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Ai action queue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="State" type="Label" parent="CanvasLayer"]
+margin_left = 155.862
+margin_top = 88.3682
+margin_right = 1211.86
+margin_bottom = 132.368
+custom_styles/normal = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "State: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goal1" type="Button" parent="."]
+margin_left = 176.14
+margin_top = 162.762
+margin_right = 318.14
+margin_bottom = 182.762
+text = "TestGoal: has_sword"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goal2" type="Button" parent="."]
+margin_left = 391.079
+margin_top = 161.402
+margin_right = 533.079
+margin_bottom = 181.402
+text = "TestGoal: eat apple due to injured"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goal3" type="Button" parent="."]
+margin_left = 701.244
+margin_top = 161.402
+margin_right = 843.244
+margin_bottom = 181.402
+text = "TestGoal: attack_player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goal4" type="Button" parent="."]
+margin_left = 932.508
+margin_top = 161.402
+margin_right = 1138.51
+margin_bottom = 181.402
+text = "TestGoal: attack_indoor_player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goal5" type="Button" parent="."]
+margin_left = 615.781
+margin_top = 191.108
+margin_right = 727.781
+margin_bottom = 211.108
+text = "Restart GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Notification" type="Label" parent="."]
+margin_left = 363.136
+margin_top = 267.324
+margin_right = 988.136
+margin_bottom = 318.324
+rect_pivot_offset = Vector2( 1030.25, -157.066 )
+custom_fonts/font = SubResource( 5 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Goal1" to="Enemy" method="_on_Goal1_pressed"]
+[connection signal="pressed" from="Goal2" to="Enemy" method="_on_Goal2_pressed"]
+[connection signal="pressed" from="Goal3" to="Enemy" method="_on_Goal3_pressed"]
+[connection signal="pressed" from="Goal4" to="Enemy" method="_on_Goal4_pressed"]
+[connection signal="pressed" from="Goal5" to="." method="_on_Goal5_pressed"]

@@ -1,0 +1,354 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://assets/Actor/Player/Adventurer Sprite Sheet v1.1.png" type="Texture" id=1]
+[ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.32122, 8.339 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.96836, 2.86724 )
+
+[sub_resource type="Animation" id=3]
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 3 ), Vector2( 9, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/SwordHit/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 7 ), Vector2( 6, 7 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 6 ), Vector2( 3, 6 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.121569, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Sprite:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.952941, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Sprite:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.384314, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Sprite:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Hurt"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 6 ), Vector2( 3, 6 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 12, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Interact"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 8, 4 ), Vector2( 9, 4 ), Vector2( 7, 4 ), Vector2( 5, 4 ), Vector2( 8, 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Interact/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 5 ), Vector2( 5, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -11.8345 ), Vector2( 0, -13.409 ), Vector2( 0, -14.976 ), Vector2( 0, -14.646 ), Vector2( 0, -11.951 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 7, 1 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 5.5102
+height = 8.57908
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Attack"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Die"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Heal"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Hurt"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Interact"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=35]
+states/Attack/node = SubResource( 12 )
+states/Attack/position = Vector2( 444, 93 )
+states/Die/node = SubResource( 13 )
+states/Die/position = Vector2( 828, 116 )
+states/Heal/node = SubResource( 14 )
+states/Heal/position = Vector2( 711, 334 )
+states/Hurt/node = SubResource( 15 )
+states/Hurt/position = Vector2( 807, 199 )
+states/Idle/node = SubResource( 16 )
+states/Idle/position = Vector2( 566, 199 )
+states/Interact/node = SubResource( 17 )
+states/Interact/position = Vector2( 305, 193.372 )
+states/Jump/node = SubResource( 18 )
+states/Jump/position = Vector2( 523, 379 )
+states/Run/node = SubResource( 19 )
+states/Run/position = Vector2( 634, 68 )
+transitions = [ "Idle", "Jump", SubResource( 20 ), "Idle", "Run", SubResource( 21 ), "Idle", "Attack", SubResource( 22 ), "Idle", "Hurt", SubResource( 23 ), "Attack", "Idle", SubResource( 24 ), "Hurt", "Die", SubResource( 25 ), "Hurt", "Idle", SubResource( 26 ), "Heal", "Idle", SubResource( 27 ), "Jump", "Idle", SubResource( 28 ), "Run", "Idle", SubResource( 29 ), "Run", "Attack", SubResource( 30 ), "Jump", "Attack", SubResource( 31 ), "Idle", "Interact", SubResource( 32 ), "Interact", "Idle", SubResource( 33 ), "Interact", "Heal", SubResource( 34 ) ]
+start_node = "Idle"
+end_node = "Die"
+graph_offset = Vector2( 0, 91.9855 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=36]
+
+[node name="Player" type="KinematicBody2D" groups=[
+"kinematicbodies",
+"player",
+]]
+collision_mask = 7
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2.32454, -16.4383 )
+texture = ExtResource( 1 )
+vframes = 16
+hframes = 13
+region_rect = Rect2( 28, 23, 52, 41 )
+
+[node name="SwordHit" type="Area2D" parent="Sprite" groups=[
+"weaponhit",
+]]
+modulate = Color( 0.223529, 0.184314, 0.184314, 1 )
+position = Vector2( -2.32454, 16.4383 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SwordHit"]
+position = Vector2( 12.0313, -9.70366 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Interact" type="Area2D" parent="Sprite"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Interact"]
+position = Vector2( 11.9795, 6.73464 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 3 )
+anims/Die = SubResource( 4 )
+anims/Heal = SubResource( 5 )
+anims/Hurt = SubResource( 6 )
+anims/Idle = SubResource( 7 )
+anims/Interact = SubResource( 8 )
+anims/Jump = SubResource( 9 )
+anims/Run = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"collisionbodies",
+]]
+position = Vector2( 1.22378, -11.4265 )
+shape = SubResource( 11 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 35 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 36 )
+[connection signal="body_entered" from="Sprite/SwordHit" to="." method="_on_SwordHit_body_entered"]
+[connection signal="area_entered" from="Sprite/Interact" to="." method="_on_Interact_area_entered"]
+[connection signal="body_entered" from="Sprite/Interact" to="." method="_on_Interact_body_entered"]
